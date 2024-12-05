@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Sticker.ly</string>
+    <string name="login_dec">By coutinuing,you agree to Sticker.ly\'s\n \u00A0\u00A0\u00A0Term of Use and Privacy Policy.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="bell_dec">You now have a Sticker.ly profile. Set up your\nprofile!\n<font color="7e7979">Now</font></string>
+    <string name="settings_dec">Enjoy stickers without ads\nAccess all premium features.</string>
+    <string name="settingsEnd_dec">Copyright @ 2019 By Sticker.ly All Rights Reserved.</string>
+    <string name="number_followers"><font color="#ff000000">0</font>  Followers</string>
+    <string name="number_following"><font color="#ff000000">0</font>  Following</string>
+</resources>

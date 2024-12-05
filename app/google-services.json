@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "199547186079",
+    "project_id": "sticker-ly-33c44",
+    "storage_bucket": "sticker-ly-33c44.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:199547186079:android:be5a894a1c7b80e6d76baa",
+        "android_client_info": {
+          "package_name": "com.example.stickerly"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4HjcPAaT6rmgOT9LO21Y7v3ED8j2n1eM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
