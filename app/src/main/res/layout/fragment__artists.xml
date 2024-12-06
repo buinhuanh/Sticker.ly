@@ -59,11 +59,11 @@
             android:layout_margin="20dp"
             android:id="@+id/viewArtists"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content" />
 
         <ProgressBar
             android:id="@+id/progressBar2"
-            android:layout_marginTop="-350dp"
+            android:layout_marginTop="0dp"
             style="?android:attr/progressBarStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
