@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.example.stickerly.Model.ArtistsModel
 import com.example.stickerly.Model.CategoryModel
 import com.example.stickerly.Model.StickerModel
+import com.example.stickerly.Model.StickerPlusModel
 import com.example.stickerly.Model.SuggestedModel
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -21,6 +22,7 @@ class MainViewModel(): ViewModel() {
     private val _searchTrending=MutableLiveData<List<CategoryModel>>()
     private val _searchSuggested=MutableLiveData<List<SuggestedModel>>()
     private val _artists=MutableLiveData<List<ArtistsModel>>()
+    private val _plus=MutableLiveData<List<StickerPlusModel>>()
 
 
     val categorys:LiveData<List<CategoryModel>> =_category
@@ -30,6 +32,7 @@ class MainViewModel(): ViewModel() {
     val searchTrending:LiveData<List<CategoryModel>> =_searchTrending
     val searchSuggested:LiveData<List<SuggestedModel>> =_searchSuggested
     val artists:LiveData<List<ArtistsModel>> =_artists
+    val plus:LiveData<List<StickerPlusModel>> =_plus
 
 
     fun loadCategory(){
@@ -172,5 +175,26 @@ class MainViewModel(): ViewModel() {
              }
          })
      }
+
+    fun loadStickerPlus(){
+        val ref=firebaseDatabase.getReference("StickerPlus")
+        ref.addValueEventListener(object :ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val lists= mutableListOf<StickerPlusModel>()
+                for (childrenSnapshot in snapshot.children)
+                {
+                    val list=childrenSnapshot.getValue(StickerPlusModel::class.java)
+                    if (list!=null){
+                        lists.add(list)
+                    }
+                }
+                _plus.value=lists
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+        })
+    }
 
 }

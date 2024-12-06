@@ -1,10 +1,12 @@
 package com.example.stickerly.Fragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.stickerly.Activity.StickerlyPlusActivity
 import com.example.stickerly.Adapter.ViewPagerAdapter
 import com.example.stickerly.R
 import com.example.stickerly.databinding.FragmentHomeBinding
@@ -45,8 +47,16 @@ class Home_Fragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         initPagerFragment()
         initSetting()
+        initStickerPlus()
 
 //
+    }
+
+    private fun initStickerPlus() {
+        binding.btnStickerPlus.setOnClickListener{
+            val i =Intent(requireContext(),StickerlyPlusActivity::class.java)
+            startActivity(i)
+        }
     }
 
     private fun initSetting() {

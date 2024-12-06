@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.stickerly.Adapter.ArtistsAdapter
 import com.example.stickerly.R
@@ -33,27 +34,32 @@ class Artists_Fragment : Fragment() {
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
+            viewModel = ViewModelProvider(this)[MainViewModel::class.java]
         }
+
+
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding=FragmentArtistsBinding.inflate(inflater,container,false)
+          binding=FragmentArtistsBinding.inflate(inflater,container,false)
+
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        binding.progressBar2.visibility=View.VISIBLE
-//        viewModel.artists.observe(viewLifecycleOwner, Observer {
-//            binding.viewArtists.layoutManager=LinearLayoutManager(requireContext(),LinearLayoutManager.VERTICAL,false)
-//            binding.viewArtists.adapter=ArtistsAdapter(it)
-//            binding.progressBar2.visibility=View.GONE
-//        })
-//
-//        viewModel.loadArtists()
 
+        binding.progressBar2.visibility=View.VISIBLE
+
+        viewModel.artists.observe(viewLifecycleOwner, Observer {
+            binding.viewArtists.layoutManager=LinearLayoutManager(requireContext(),LinearLayoutManager.VERTICAL,false)
+            binding.viewArtists.adapter=ArtistsAdapter(it)
+            binding.progressBar2.visibility=View.GONE
+        })
+
+        viewModel.loadArtists()
     }
 
 }
